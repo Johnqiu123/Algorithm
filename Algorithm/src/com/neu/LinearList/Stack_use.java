@@ -3,6 +3,15 @@ package com.neu.LinearList;
 import java.util.EmptyStackException;
 import java.util.Stack;
 
+/**
+ *  The <tt>Stack_use</tt> Java  provides a Binary search  method for 
+ *  finding the min Integer of the rotation  array
+ *  <p>
+ *  <tt>Question:</tt>Given a rotation array A[0...N-1] , then
+ *   find the min Integer of the rotation  array
+ *  
+ *  @author Johnqiu
+ */
 public class Stack_use {
 
 	/**

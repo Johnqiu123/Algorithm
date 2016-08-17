@@ -2,6 +2,11 @@ package com.neu.LinearList;
 
 import java.util.Stack;
 
+/**
+ *  The <tt>LinkedList</tt> Java  provides the method of LinkedList
+ *  <p>
+ *  @author Johnqiu
+ */
 public class LinkedList {
 	
 	/**
