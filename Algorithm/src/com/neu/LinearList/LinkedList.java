@@ -1,5 +1,6 @@
 package com.neu.LinearList;
 
+import java.util.ArrayList;
 import java.util.Stack;
 
 /**
@@ -260,6 +261,24 @@ public class LinkedList {
 		System.out.println("");
 	}
 	
+    public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
+    	if(listNode == null){
+    		ArrayList<Integer> list = new ArrayList<Integer>();
+    		return list;
+    	}
+		ListNode p = listNode.next; // not include head node
+		Stack<ListNode> stack = new Stack<ListNode>();
+		while(p != null){
+			stack.push(p);
+			p = p.next;
+		}
+		ArrayList<Integer> arrayList = new ArrayList<Integer>();
+		while(!stack.isEmpty()){
+			ListNode node = (ListNode) stack.pop();
+			arrayList.add(node.getData());
+		}
+        return arrayList;
+    }
 	public static void main(String[] args) {
 //		int[] a = {1,7,4,0,9,4}; // 174094
 //		int[] b = {8,2,4,5,5,1,7,1}; // 82455171
@@ -303,6 +322,7 @@ public class LinkedList {
 		print(alist);
 		print(blist);
 		ListNode result = findFirstSameNode(alist,blist);
-		System.out.println(result);		
+		System.out.println(result);	
+		
 	}
 }

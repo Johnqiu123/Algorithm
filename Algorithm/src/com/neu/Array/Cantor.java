@@ -3,7 +3,7 @@ package com.neu.Array;
 import java.util.ArrayList;
 
 /**
- *  The <tt>CalcMaxGap</tt> Java  provides a Binary search  method for 
+ *  The <tt>Cantor</tt> Java  provides a Binary search  method for 
  *  finding the min Integer of the rotation  array
  *  <p>
  *  <tt>Question:</tt>Given a rotation array A[0...N-1] , then
@@ -80,13 +80,13 @@ public class Cantor {
 			    int[] a = new int[p.length];
 			    createCantor(p,a,p.length);
 			    for(int i:a){
-//			    	    System.out.println(i);
+			    	    System.out.println(i);
 			    }
 			    int[] result = new int[p.length];
 //			    cantorResume(a, result, p.length);
 			    cantorResume2(a, result, p.length);
 			    for(int i: result){
-//			    	    System.out.println(i);
+			    	    System.out.println(i);
 			    }
 		}
 	    

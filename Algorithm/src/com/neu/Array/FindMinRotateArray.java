@@ -38,7 +38,8 @@ public class FindMinRotateArray {
 		 * @param args
 		 */
 	    public static void main(String[] args) {
-			   int[] a = {4,5,6,7,0,1,2};
+//			   int[] a = {4,5,0,7,0,1,2};
+			   int[] a = {2,2,2,2,2,2,1,2};
 			   int m = findMin(a, a.length);
 			   System.out.println(m);
 		}

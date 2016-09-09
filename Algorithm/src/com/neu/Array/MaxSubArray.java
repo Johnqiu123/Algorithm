@@ -1,6 +1,6 @@
 package com.neu.Array;
 
-import java.util.Arrays;
+import java.util.Scanner;
 
 /**
  *  The <tt>MaxSubArray</tt> Java  provides a Binary search  method for 
@@ -82,10 +82,22 @@ public class MaxSubArray {
 		 * @param args
 		 */
 	    public static void main(String[] args) {
-			   int[] a = {1,-1,3,10,-4,7,2,-5};
+//			   int[] a = {1,-1,3,10,-4,7,2,-5};
 //			   int m = maxSubarray(a, a.length);
-			   int m = maxSubarray2(a, a.length);
-			   System.out.println(m);
+////			   int m = maxSubarray2(a, a.length);
+//			   System.out.println(m);
+			   
+			   Scanner scan = new Scanner(System.in);
+			   int n = scan.nextInt();
+			   scan.nextLine();
+			   String[] stringArray = scan.nextLine().split(" ");
+			   int[] array = new int[n];
+			   for(int i=0; i < n; i++){
+				  System.out.println(stringArray[i]);
+				  array[i] = Integer.parseInt(stringArray[i]);
+			   }
+			   int result = maxSubarray(array, n);
+			   System.out.println(result);
 		}
 
 }

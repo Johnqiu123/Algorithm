@@ -1,6 +1,5 @@
 package com.neu.Sorting;
 
-import java.util.Arrays;
 import java.util.Vector;
 public class PrimeNum {
 
@@ -50,15 +49,13 @@ public class PrimeNum {
 		return low;
 	}
 	
-	public int twoSum(int[] array, int sum){
-		Arrays.sort(array);
-	    
+	public int twoSum(int[] array, int index, int sum){
 		int low = 0;
-		int high = array.length -1;
+		int high = index - 1;
 		int result;
 		int times = 0;
 		
-		while(low <= high){
+		while(low < high){
 			result = array[low] + array[high];
 			if(result == sum){
 				times++;
@@ -75,32 +72,40 @@ public class PrimeNum {
 	
 	public static void main(String[] args) {
 		boolean[] b = new boolean[1000001];
+//		boolean[] b = new boolean[11];
 		PrimeNum pn = new PrimeNum();
 		pn.a = b;
 		pn.eratosthenes();
 		Vector<Integer>  vec = new Vector<Integer>();
 		
+		// get all prime numbers in 1000000
 		for(int i=0; i < pn.a.length; i++){
 			if(pn.a[i]){
 				vec.add(i);
 			}
 		}
 		
+		// change vector to array
 		int[] k = new int[vec.size()];
 		for(int i = 0; i < vec.size(); i++){
 			k[i] = vec.get(i);
+//			System.out.print(k[i] + " ");
 		}
+//		System.out.println("");
 		
 		int j;
 		int m = 0;
 		int f = 0;
-		for(int i=0; i < k.length; i++){
+		// use twosum method to find a number can be divided into 
+		//how many pair numbers' sum 
+		for(int i=2; i < pn.a.length; i++){
 			j = pn.find(k, i);
-			j = pn.twoSum(k, j);
+			j = pn.twoSum(k, j, i);
 			if(m < j){
 				m = j;
 				f = i;
 			}
+//			System.out.println(i + ":" + j);
 		}
 		System.out.println(f + " : " + m);
 		

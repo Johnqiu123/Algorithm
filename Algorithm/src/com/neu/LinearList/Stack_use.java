@@ -1,5 +1,6 @@
 package com.neu.LinearList;
 
+import java.io.EOFException;
 import java.util.EmptyStackException;
 import java.util.Stack;
 
@@ -125,6 +126,42 @@ public class Stack_use {
 		return result;
 	}
 	
+	/**
+	 * simulate queue push operation by stack
+	 * @param stack
+	 * @param data
+	 * @return
+	 */
+	public static Stack<Integer> queue_push(Stack<Integer> stack, int data){
+		stack.push(data);
+		return stack;
+	}
+	
+	/**
+	 * simulate queue pop operation by stack
+	 * @param stack
+	 * @return
+	 */
+	public static int queue_pop(Stack<Integer> stack){
+		if(stack.size() < 0){
+			return 0;
+		}
+		Stack<Integer> stack2 = new Stack<Integer>();
+		while(stack.size()> 0){
+			stack2.push(stack.pop());
+		}
+		if(stack2.size() == 0){
+			try {
+				throw new EOFException("queue is empty");
+			} catch (EOFException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		int result = stack2.pop();
+		return result;
+	}
+	
 	
 	public static void main(String[] args) {
 //		char[] c ={'(','(',')',')'};
@@ -136,8 +173,17 @@ public class Stack_use {
 //		int ans = reversePolishNotation(s);
 //		System.out.println(ans);
 		/*****************Test 3********************/
-		int[] height = {2,7,5,6,4};
-		int result = largestRectangleArea(height);
+//		int[] height = {2,7,5,6,4};
+//		int result = largestRectangleArea(height);
+//		System.out.println(result);
+		
+		/*****************Test 4********************/
+		int[] a = {2,7,5,6,4};
+		Stack<Integer> stack = new Stack<Integer>();
+		for(int i=0 ; i < a.length; i++){
+			stack.add(a[i]);
+		}
+		int result = queue_pop(stack);
 		System.out.println(result);
  	}
 }
