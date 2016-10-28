@@ -1,6 +1,8 @@
 package com.neu.Tree;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 import java.util.Stack;
 
@@ -322,6 +324,28 @@ public class BinarySearchTree {
     		}
     	}
     }
+    
+    public static TreeNode generateByList(List<Integer> data){
+    	if(data == null){
+    		return null;
+    	}
+    	TreeNode root = createTree(data, 0);
+    	return root;
+    }
+    
+    private static TreeNode createTree(List<Integer> data, int index){
+    	TreeNode tn = null;
+		if (index<data.size()) {
+			    if(data.get(index)!= null){
+			    	int value = data.get(index);
+					tn = new TreeNode(value);
+					tn.left = createTree(data, 2*index+1);
+					tn.right = createTree(data, 2*index+2);
+					return tn;
+			    }	    
+		}		
+		return tn;
+    }
     /**
      * 
      * @param root
@@ -378,14 +402,14 @@ public class BinarySearchTree {
 	}
 
 	public static void main(String[] args) {
-		int[]  b = {15,5,3,12,16,20,23,13,18,10,6,7};
-		BinarySearchTree bst = new BinarySearchTree();
-		TreeNode root = bst.getRoot();
-//		addTNode(root, b[1]);
-		for(int i = 0;  i < b.length; i++){
-//			bst.addByStack(root, b[i]);
-			root = add(root, b[i]);
-		}
+//		int[]  b = {15,5,3,12,16,20,23,13,18,10,6,7};
+//		BinarySearchTree bst = new BinarySearchTree();
+//		TreeNode root = bst.getRoot();
+////		addTNode(root, b[1]);
+//		for(int i = 0;  i < b.length; i++){
+////			bst.addByStack(root, b[i]);
+//			root = add(root, b[i]);
+//		}
 //		TreeNode result = find(root,7);
 //		System.out.println(result);
 //		bst.printTree(root);
@@ -402,10 +426,19 @@ public class BinarySearchTree {
 		/*****************Test 3********************/
 //		bst.preorderBystack(root);
 //		System.out.println("");
-		bst.inorderBystack(root);
-		System.out.println("");
+//		bst.inorderBystack(root);
+//		System.out.println("");
 //		postorderBystack(root);
 //		System.out.println("");
 //		levelorder(root);
+		
+		/*****************Test 3********************/
+		int[]  b = {15,5,3,12,16,20,23,13,18,10,6,7};
+		List<Integer> list = new ArrayList<Integer>();
+		for(int i = 0; i < b.length; i++){
+			list.add(b[i]);
+		}
+		TreeNode root = generateByList(list);
+		printTree(root);
 	}
 }
